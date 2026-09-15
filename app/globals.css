@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --color-ink-50: #f7f7f6;
+  --color-ink-100: #eeeceb;
+  --color-ink-200: #e2dfdc;
+  --color-ink-300: #c9c4be;
+  --color-ink-400: #9b948c;
+  --color-ink-500: #6f6860;
+  --color-ink-600: #514b44;
+  --color-ink-700: #37322c;
+  --color-ink-800: #1e1b18;
+  --color-ink-900: #0d0c0b;
+  --color-ink-950: #060504;
+
+  --color-cream: #fbfaf7;
+  --color-accent: #0f0e0c;
+  --color-sale: #c8321e;
+  --color-new: #0d0c0b;
+  --color-ok: #157347;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  background: var(--color-cream);
+  color: var(--color-ink-900);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+}
+
+body { min-height: 100dvh; }
+
+::selection { background: var(--color-ink-900); color: var(--color-cream); }
+
+:focus-visible {
+  outline: 2px solid var(--color-ink-900);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee { animation: marquee 40s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
